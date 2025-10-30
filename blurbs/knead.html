@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kneading the dough</title>
+
+<!-- Font + MathJax -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+  :root {
+    --bg-color: #ffe9e9;
+    --text-color: #111;
+    --link-color: #b400b4;
+  }
+
+  body.dark {
+    --bg-color: #111;
+    --text-color: #eee;
+    --link-color: #ff90ff;
+  }
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 0 1.5em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.2em;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+   #darkModeToggle{
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--heading);
+  color: #FFEAC5;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1.1rem;
+  transition: background-color .3s ease, color .3s ease, transform .2s ease;
+}
+body.dark #darkModeToggle{
+  background: #FFEAC5;
+  color: var(--heading);
+}
+#darkModeToggle:hover{ transform: scale(1.2);  box-shadow: 0 4px 12px rgba(0,0,0,0.25)}
+  blockquote {
+      background-color: #FFDBB5;
+      border-left: 3px solid #6C4E31;
+      margin: 1.5rem 0;
+      padding: 0.75rem 1rem;
+      font-style: italic;
+    }
+
+    .dark-mode {
+      background-color: #1b1b1b;
+      color: #f4f0ec;
+    }
+
+    .dark-mode blockquote {
+      background-color: #2b2b2b;
+      border-left-color: #f4f0ec;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode figcaption {
+      color: #f4f0ec;
+    }
+  .google-img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 500px;   /* scale down */
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Show only one version depending on mode */
+.dark-mode .light-mode-img {
+  display: none;
+}
+
+.dark-mode .dark-mode-img {
+  display: block;
+}
+
+.light-mode-img {
+  display: block;
+}
+
+.dark-mode-img {
+  display: none;
+}
+  
+  p {
+    text-align: justify;
+    margin-bottom: 1.2em;
+  }
+
+  .author {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2em;
+  }
+
+  sup {
+    font-size: 0.8em;
+  }
+
+  figure {
+      text-align: center;
+      margin: 1.5rem auto;
+      max-width: fit-content;
+    }
+
+    figcaption {
+      font-style: italic;
+      color: #6C4E31;
+      margin-top: 0.5rem;
+    }
+
+  .footnotes {
+    margin-top: 3em;
+    border-top: 1px solid var(--text-color);
+    padding-top: 1em;
+    font-size: 1rem;
+  }
+
+  .footnotes p {
+    margin-bottom: 0.5em;
+  }
+</style>
+</head>
+
+<body>
+<button id="darkModeToggle">🌙</button>
+
+<h1>Kneading the dough..</h1>
+<p class="author">Venkat Trivikram</p>
+
+<p>Given a (raw) set of some elements, kneading them by defining some properties and making them into a <i>study</i>-able structure has been a practice that mathematicians been doing since ages. Owing to that, this is yet again another structure, a <i>topological space</i>. We first see what a <i>topology</i> is.</p>
+
+<p>For any set \(X\), we have the power set \(\mathcal{P}(X)\) that is the set of all the \(2^{|X|}\) subsets of \(X\). A topology \(\mathcal{T}\) is a <i>nice</i> enough subset of \(\mathcal{P}(X)\). We define the <i>nice</i>-ness as follows.</p>
+
+<p><b>Definition (Topology):</b>  
+A <b>topology</b> on a set \(X\) is a collection \(\mathcal{T}\) of subsets of \(X\) having the following properties:</p>
+
+<ul>
+<li>The sets \(\emptyset\) and \(X\) are in \(\mathcal{T}\).</li>
+<li>The union of the elements of any subcollection of \(\mathcal{T}\) is in \(\mathcal{T}\).</li>
+<li>The intersection of the elements of any finite subcollection of \(\mathcal{T}\) is in \(\mathcal{T}\).</li>
+</ul>
+
+<p>The set \(X\) together with the collection \(\mathcal{T}\) is called a <b>topological space</b>. We abuse the notation and call \(X\) itself as a topological space when \(\mathcal{T}\) is evident. Elements of \(\mathcal{T}\) are called <b>open sets</b> and a <b>closed set</b> is that whose complement is an open set.</p>
+
+<p>Next thing is, whenever we have new structures, we try to get more information out of it by considering functions between them. But we at least seek some <i>nice</i>-ness to the functions. We at least want the function between two topological spaces to preserve the respective topologies, don't we? Here's such least nice kind of map<sup><a href="#fn1">1</a></sup>.</p>
+
+<p><b>Definition (Continuous map):</b>  
+Let \((X,\mathcal{T})\), \((Y,\mathcal{T'})\) be two topological spaces. A map \(f : X \to Y\) is said to be <b>continuous</b> if for any open set \(\mathcal{U}\) in \(Y\), \(f^{-1}(\mathcal{U})\) is an open set of \(X\).</p>
+
+<p>So, how exactly is it preserving the respective topologies? Here's how. We know that topologies are characterized by the open sets. So, preserving the open sets, would preserve the topologies. Suppose we have a continuous map as above. Further suppose \(\mathcal{U}\) and \(\mathcal{V}\) are open in \(Y\), then \(f^{-1}(\mathcal{U})\) and \(f^{-1}(\mathcal{V})\) are open in \(X\). Now observe that,</p>
+
+<ul>
+<li>as \(\emptyset\) is open in \(Y\), \(f^{-1}(\emptyset) = \emptyset\) is open in \(X\)</li>
+<li>as \(Y\) is open in \(Y\), \(f^{-1}(Y) = X\) is open in \(X\)</li>
+<li>\(f^{-1}(\mathcal{U} \cup \mathcal{V}) = f^{-1}(\mathcal{U}) \cup f^{-1}(\mathcal{V})\) which is open since topologies are closed under unions</li>
+<li>\(f^{-1}(\mathcal{U} \cap \mathcal{V}) = f^{-1}(\mathcal{U}) \cap f^{-1}(\mathcal{V})\) which is open since topologies are closed under intersections</li>
+</ul>
+
+<p>You see that! We exploited the intrinsic set theoretic properties of the inverse functions that behaves well with unions and intersections and thus it is true for arbitrary unions and finite intersections too. Hence, it preserves the open sets, and thus the topology (cf. the definition above).</p>
+
+<p>Now, you might think, why can't we define like,</p>
+
+<blockquote>
+for every open set \(\mathcal{U}\) of \(X\), \(f(\mathcal{U})\) should be an open set in \(Y\)
+</blockquote>
+
+<p>Such maps are called <b>open</b> maps. But these are certainly not helpful. Set theoretically, image of a function \(f\) doesn't behave that well as \(f^{-1}\) does. To start with, the intersections: for any two sets \(A, B\) in the domain of \(f\),</p>
+
+<p>\[
+f(A\cap B) \subseteq f(A) \cap f(B)
+\]</p>
+
+<p>Equality is not true in general. Thus, there are open maps which are not continuous, see <a href="https://math.stackexchange.com/questions/75589/open-maps-which-are-not-continuous" target="_blank">this</a>.</p>
+
+<div class="footnotes">
+  <p id="fn1"><sup>1</sup> from now we call functions as maps. it’s short and cute. moreover function reminds us of duty/work whereas map is more close to earth, nature ;p</p>
+</div>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent =
+        document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+
+</body>
+</html>

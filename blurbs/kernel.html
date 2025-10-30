@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ah! these Kernels</title>
+
+<!-- Font + MathJax -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+  :root {
+    --bg-color: #ffe9e9;
+    --text-color: #111;
+    --link-color: #b400b4;
+  }
+
+  body.dark {
+    --bg-color: #111;
+    --text-color: #eee;
+    --link-color: #ff90ff;
+  }
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 0 1.5em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.2em;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+ #darkModeToggle{
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--heading);
+  color: #FFEAC5;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1.1rem;
+  transition: background-color .3s ease, color .3s ease, transform .2s ease;
+}
+body.dark #darkModeToggle{
+  background: #FFEAC5;
+  color: var(--heading);
+}
+#darkModeToggle:hover{ transform: scale(1.2);  box-shadow: 0 4px 12px rgba(0,0,0,0.25)}
+
+  
+  blockquote {
+      background-color: #FFDBB5;
+      border-left: 3px solid #6C4E31;
+      margin: 1.5rem 0;
+      padding: 0.75rem 1rem;
+      font-style: italic;
+    }
+
+    .dark-mode {
+      background-color: #1b1b1b;
+      color: #f4f0ec;
+    }
+
+    .dark-mode blockquote {
+      background-color: #2b2b2b;
+      border-left-color: #f4f0ec;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode figcaption {
+      color: #f4f0ec;
+    }
+  .google-img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 500px;   /* scale down */
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Show only one version depending on mode */
+.dark-mode .light-mode-img {
+  display: none;
+}
+
+.dark-mode .dark-mode-img {
+  display: block;
+}
+
+.light-mode-img {
+  display: block;
+}
+
+.dark-mode-img {
+  display: none;
+}
+  
+  p {
+    text-align: justify;
+    margin-bottom: 1.2em;
+  }
+
+  .author {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2em;
+  }
+
+  sup {
+    font-size: 0.8em;
+  }
+
+  figure {
+      text-align: center;
+      margin: 1.5rem auto;
+      max-width: fit-content;
+    }
+
+    figcaption {
+      font-style: italic;
+      color: #6C4E31;
+      margin-top: 0.5rem;
+    }
+
+  .footnotes {
+    margin-top: 3em;
+    border-top: 1px solid var(--text-color);
+    padding-top: 1em;
+    font-size: 1rem;
+  }
+
+  .footnotes p {
+    margin-bottom: 0.5em;
+  }
+</style>
+</head>
+
+<body>
+<button id="darkModeToggle">🌙</button>
+
+  <h1>Ah! these Kernels..</h1>
+ <p class="author">Venkat Trivikram</p>
+
+  <p>One fine evening, being an <i>etymology-</i> enthusiast, I looked up the dictionary meaning of “<b>Kernel</b>” over <span style="font-family: 'Google Sans', sans-serif; font-weight: 500;">
+  <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+</span>
+ and this showed up.</p>
+
+  <figure id="fig1">
+    <img src="google-light.png" alt="Google Screenshot" class="google-img light-mode-img">
+    <img src="google-dark.png" alt="Google Screenshot Dark" class="google-img dark-mode-img">
+
+    <figcaption><Fig class="1"></Fig>Fig.1: kernel over <span style="font-family: 'Google Sans', sans-serif; font-weight: 500;">
+  <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+</span>
+</figcaption>
+  </figure>
+
+  <p>So, <span style="font-family: 'Google Sans', sans-serif; font-weight: 500;">
+  <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+</span>
+ convinced me that “<b>Kernel</b>” is that which is <i>central</i> or <i>important</i> entity of something. This made me think that the kernel which is our bread and butter, which we use left and right is important part of what? <i>our life</i> of course, but mathematically what?</p>
+
+  <p>Upon scrutinizing, I came up with a conclusion and convinced myself that the kernel is the important “\( \ast \ast \ast \ast \ast \)”.</p>
+
+  <p>OK wait! let us arrive there and naturally complete the sentence.</p>
+
+  <p>We first recall, if \( G \) and \( H \) are groups and \( \varphi : G \rightarrow H \) is a group homomorphism, then we know that</p>
+
+  <p>\[
+  \ker(\varphi) := \{ g \in G \mid \varphi(g) = \text{id}_{H} \},
+  \]
+  viz.
+  \[
+  \ker(\varphi) = \varphi^{-1}(\text{id}_{H}).
+  \]</p>
+
+  <p>This immediately reminds us of the following object </p>
+
+  <p>\[
+    \text{“fiber".}\]
+  <p>
+
+  <p>We recall, \( A, B \) are sets and \( f : A \rightarrow B \) be a function, then for each \( b \in B, \) the preimage of \( \{b\} \) under \( f \) is called</p>
+
+  <p>\[
+  \text{fiber of } f \text{ over } b.
+  \]</p>
+
+  <p>We realize, \( \ker(\varphi) \) is a fiber of \( \varphi \) over \( \text{id}_H. \) Nice, now since there are many fibers of \( \varphi \), it is tempting to conclude that kernel is the <i>important</i> fiber. But, what makes it important among the fibers?</p>
+
+  <p>To see that, for any \( g \in G \), look at the <b>coset</b></p>
+
+  <p>\[
+  g \ker(\varphi) := \{ gk \in G \mid k \in \ker(\varphi) \}.
+  \]</p>
+
+  <p>This set, under \( \varphi \) maps to...</p>
+
+  <p>\[
+  \varphi(gk) = \varphi(g)\varphi(k) = \varphi(g)\,\text{id}_H = \varphi(g)
+  \]</p>
+
+  <p>So, \( g\ker(\varphi) \subseteq \varphi^{-1}(\varphi(g)). \) Suppose, \( h \in \varphi^{-1}(\varphi(g)). \) Then, \( \varphi(h) = \varphi(g). \) Thus,</p>
+
+  <p>\[
+  \begin{aligned}
+  \varphi(h)\varphi(g)^{-1} &= \text{id}_H \\
+  \varphi(h)\varphi(g^{-1}) &= \text{id}_H \\
+  \varphi(hg^{-1}) &= \text{id}_H \\
+  hg^{-1} &\in \ker(\varphi) \\
+  h &\in g\ker(\varphi).
+  \end{aligned}
+  \]</p>
+
+  <p>Thus, \( \varphi^{-1}(\varphi(g)) \subseteq g\ker(\varphi). \) Thus, \( \varphi^{-1}(\varphi(g)) \equiv g\ker(\varphi) \), viz.</p>
+
+  <p>\[
+  g\ker(\varphi) \text{ is precisely the fiber over } \varphi(g).
+  \]</p>
+
+  <p>We thus have following bijective correspondence</p>
+
+  <p>\[
+  \{g \ker(\varphi)\} \overset{\varphi}{\longleftrightarrow} \{\varphi(g)\}.
+  \]</p>
+
+  <p>Since, fibers are disjoint by definition, each element in the image of \( \varphi \) is uniquely determined by the corresponding coset consisting \( \ker(\varphi). \) This forms the basic idea of the celebrated <b>First Isomorphism Theorem</b> which states:</p>
+
+  <blockquote>
+    if \( G \) and \( H \) are groups and \( \varphi : G \rightarrow H \) is a group homomorphism, then
+    \[
+    G / \ker(\varphi) \cong \operatorname{Im}(\varphi).
+    \]
+  </blockquote>
+Now, we complete the aforementioned deferred sentence naturally as follows
+  <blockquote>
+    <center>
+      “<b>Kernel</b> is the important <b>Fiber</b>.”
+    </center>
+  </blockquote>
+
+  <p><b>PS.</b> The above <a href="#fig1">Figure 1</a> also tells us that Kernel comes from the word <b>Corn</b>. Astute of you might know corn is rich in dietary “<b>fiber</b>” 😉</p>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent =
+        document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+
+</body>
+</html>

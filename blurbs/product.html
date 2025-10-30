@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Into the product</title>
+
+<!-- Font + MathJax -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+  :root {
+    --bg-color: #ffe9e9;
+    --text-color: #111;
+    --link-color: #b400b4;
+  }
+
+  body.dark {
+    --bg-color: #111;
+    --text-color: #eee;
+    --link-color: #ff90ff;
+  }
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 0 1.5em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.2em;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #darkModeToggle{
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--heading);
+  color: #FFEAC5;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1.1rem;
+  transition: background-color .3s ease, color .3s ease, transform .2s ease;
+}
+body.dark #darkModeToggle{
+  background: #FFEAC5;
+  color: var(--heading);
+}
+#darkModeToggle:hover{ transform: scale(1.2);  box-shadow: 0 4px 12px rgba(0,0,0,0.25)}
+  blockquote {
+      background-color: #FFDBB5;
+      border-left: 3px solid #6C4E31;
+      margin: 1.5rem 0;
+      padding: 0.75rem 1rem;
+      font-style: italic;
+    }
+
+    .dark-mode {
+      background-color: #1b1b1b;
+      color: #f4f0ec;
+    }
+
+    .dark-mode blockquote {
+      background-color: #2b2b2b;
+      border-left-color: #f4f0ec;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode figcaption {
+      color: #f4f0ec;
+    }
+  .google-img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 500px;   /* scale down */
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Show only one version depending on mode */
+.dark-mode .light-mode-img {
+  display: none;
+}
+
+.dark-mode .dark-mode-img {
+  display: block;
+}
+
+.light-mode-img {
+  display: block;
+}
+
+.dark-mode-img {
+  display: none;
+}
+  
+  p {
+    text-align: justify;
+    margin-bottom: 1.2em;
+  }
+
+  .author {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2em;
+  }
+
+  sup {
+    font-size: 0.8em;
+  }
+
+  figure {
+      text-align: center;
+      margin: 1.5rem auto;
+      max-width: fit-content;
+    }
+
+    figcaption {
+      font-style: italic;
+      color: #6C4E31;
+      margin-top: 0.5rem;
+    }
+
+  .footnotes {
+    margin-top: 3em;
+    border-top: 1px solid var(--text-color);
+    padding-top: 1em;
+    font-size: 1rem;
+  }
+
+  .footnotes p {
+    margin-bottom: 0.5em;
+  }
+</style>
+</head>
+
+<body>
+<button id="darkModeToggle">🌙</button>
+
+<h1>Into the Product</h1>
+<p class="author">Venkat Trivikram</p>
+
+<p>Roughly speaking, a <i>topology</i> is nothing but a <i>good</i> subset of the power set right? So, we can talk about set inclusions of topologies. We recall that <i>coarsest</i> topology on a set \(X\) is the <i>smallest</i> topology in the sense of inclusions of all topologies on the set \(X\). So, any open set in the coarsest topology is also open in any other topology on that set. Let us keep this aside for time being.</p>
+
+<p>When do we call some set, a space? It is when that set is endowed with some topology. Consider a topological <i>space</i> \(X\) with topology \(\tau\). Consider a subset \(S\) of \(X\). When do we call this <i>subset</i> a <i>subspace</i>? As mentioned above, the answer is that it is when that subset is endowed with a topology. So we have to define open sets on \(S\). But we already have a topology in hand to start with, which is the topology on the whole set, \(\tau\).</p>
+
+<p>So, natural way to define open sets on \(S\) is: you look at all the open sets \(X\), i.e., the elements of \(\tau\), and declare those to be open in \(S\) which intersect \(S\). Nice, well and good. But, there is another way to look at the same thing.</p>
+
+<p>We recall definition of continuous function. A function between two topological spaces \(f : X \to Y\) is continuous if for every open set in \(Y\), the inverse image w.r.t \(f\) is open in \(X\). This should ring a bell that, a way to look at open sets on a set is to consider a map to some other known<a href="#fn1" id="ref1"><sup>1</sup></a> space and consider the inverse image of the open sets in that space. Good, no?</p>
+
+<p>So, that's the idea, we now make it rigorous. We have subset \(S\) of \(X\). What is the most natural map from \(S\) to a known space? Firstly, here the known space is \(X\). So, the answer is the inclusion map</p>
+
+<p>\[
+\iota : S \hookrightarrow X
+\]</p>
+
+<p>since, \(S\) is literally the subset of \(X\).</p>
+
+<p>Consider the collection of all inverse images of open sets of \(X\), i.e.</p>
+
+<p>\[
+\mathcal{O} := \{\iota^{-1}(U) \mid U \in \tau\}.
+\]</p>
+
+<p>Now, look at all topologies of \(S\). Moreover, look at those topologies in which \(\mathcal{O}\) is a subset of. So, as our instinct says, we have to declare one of these topologies as “<i>the</i>” topology on \(S\). For sanity reasons, we don't need many open sets, right? we are content with the bare minimum. Thus, we look at the <i>coarsest</i> topology among all the topologies on \(S\) that contain \(\mathcal{O}\).</p>
+
+<p>So, we are looking at the <i>coarsest</i> topology on \(S\) such that inclusion \(\iota : S \hookrightarrow X\) is continuous. The beauty of this is that it is equivalent<a href="#fn2" id="ref2"><sup>2</sup></a> to the notion that I first mentioned. Thus, this is the <i>subspace</i> topology.</p>
+
+<p>Now we come to the real deal. Let \(I\) be any index set. For topological spaces \(X_\alpha, \alpha \in I\), we can make sense of cartesian product</p>
+
+<p>\[
+P := \prod_{\alpha \in I} X_\alpha.
+\]</p>
+
+<p>What would be a good way to define topology on \(P\)? We follow the second aforementioned idea of continuous functions. So, we must have continuous functions from \(P\) to some known space(s). What other well-known spaces do we have in comparison to the components of the product, namely \(X_\alpha, \alpha \in I\). And what more are the natural functions from the product to the component spaces than the <i>projections</i>? Thus, we look at the <i>coarsest</i> topology on \(P\) such that all projections</p>
+
+<p>\[
+\pi_\alpha : P \to X_\alpha
+\]</p>
+
+<p>are continuous. We call this the <i>product</i> topology on \(P\).</p>
+
+<div class="footnotes">
+  <p id="fn1"><sup>1</sup> we know the space means, we know the open sets of it. <a href="#ref1">↩</a></p>
+  <p id="fn2"><sup>2</sup> good exercise would be to show these are actually equivalent. <a href="#ref2">↩</a></p>
+</div>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent =
+        document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+
+</body>
+</html>

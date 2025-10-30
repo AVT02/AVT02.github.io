@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venkat Trivikram</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Merriweather:wght@400;500&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+  <button id="darkModeToggle">🌙</button>
+
+  <h1>Venkat Trivikram</h1>
+  <p class="tagline"><span class="smallcaps">{math} ∪ {art}</span></p>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="science.html">Science</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="misc.html">Misc.</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="home-main">
+  <div class="home-intro">
+    <div class="intro-text">
+      <p>I'm Venkat Trivikram. Recently finished Master's in Mathematics at Indian Statistical Institute, Bangalore. Mathematical interests include applied geometry and topology. Digital art and poetry form the other set of interests. Are these sets disjoint? I don't think so...</p>
+    </div>
+    <div class="intro-image">
+      <figure>
+        <img id="portrait" src="home-image-light.jpg" alt="Venkat Trivikram">
+        <figcaption>“kozhikode — afternoon breeze by the shore.”</figcaption>
+      </figure>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://x.com/trivikramudu" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/trivikramudu/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/venkat-trivikram-088789236/" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("darkModeToggle");
+  const portrait = document.getElementById("portrait");
+  const caption = document.querySelector(".intro-image figcaption");
+
+  // Check stored theme or default to light
+  const savedTheme = localStorage.getItem("theme") || "light";
+
+  function setTheme(mode) {
+    if (mode === "dark") {
+      document.body.classList.add("dark-mode");
+      toggle.textContent = "☀️";
+      portrait.src = "home-image-dark.jpg";
+      caption.textContent = "hyderabad | chai | clicked by saheb";
+    } else {
+      document.body.classList.remove("dark-mode");
+      toggle.textContent = "🌙";
+      portrait.src = "home-image-light.jpg";
+      caption.textContent = "kozhikode | māgha pūrNima | clicked by akka";
+    }
+    localStorage.setItem("theme", mode);
+  }
+
+  // Apply saved theme on load
+  setTheme(savedTheme);
+
+  // Toggle theme on button click
+  toggle.addEventListener("click", () => {
+    const currentTheme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+});
+</script>
+</body>
+</html>

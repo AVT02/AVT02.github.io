@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>They got a good characteristic</title>
+
+<!-- Font + MathJax -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+  MathJax = {
+    tex: {
+      macros: {
+        cha: "\\mathrm{ch}"
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async 
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+<style>
+  :root {
+    --bg-color: #ffe9e9;
+    --text-color: #111;
+    --link-color: #b400b4;
+  }
+
+  body.dark {
+    --bg-color: #111;
+    --text-color: #eee;
+    --link-color: #ff90ff;
+  }
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 3em auto;
+    padding: 0 1.5em;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0.2em;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #darkModeToggle{
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--heading);
+  color: #FFEAC5;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1.1rem;
+  transition: background-color .3s ease, color .3s ease, transform .2s ease;
+}
+body.dark #darkModeToggle{
+  background: #FFEAC5;
+  color: var(--heading);
+}
+#darkModeToggle:hover{ transform: scale(1.2); }
+
+  blockquote {
+      background-color: #FFDBB5;
+      border-left: 3px solid #6C4E31;
+      margin: 1.5rem 0;
+      padding: 0.75rem 1rem;
+      font-style: italic;
+    }
+
+    .dark-mode {
+      background-color: #1b1b1b;
+      color: #f4f0ec;
+    }
+
+    .dark-mode blockquote {
+      background-color: #2b2b2b;
+      border-left-color: #f4f0ec;
+    }
+
+    .dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode figcaption {
+      color: #f4f0ec;
+    }
+  .google-img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 500px;   /* scale down */
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Show only one version depending on mode */
+.dark-mode .light-mode-img {
+  display: none;
+}
+
+.dark-mode .dark-mode-img {
+  display: block;
+}
+
+.light-mode-img {
+  display: block;
+}
+
+.dark-mode-img {
+  display: none;
+}
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  margin: 0.25rem 0;
+}
+
+.diagram-container iframe {
+  width: 400px;
+  max-width: 80%;
+  aspect-ratio: 511 / 432;
+  transition: filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 🌓 Dark mode adaptation */
+body.dark-mode .diagram-container iframe {
+  filter: invert(0.92) hue-rotate(180deg) contrast(0.9);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}  
+  p {
+    text-align: justify;
+    margin-bottom: 1.2em;
+  }
+
+  .author {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2em;
+  }
+
+  sup {
+    font-size: 0.8em;
+  }
+
+  figure {
+      text-align: center;
+      margin: 1.5rem auto;
+      max-width: fit-content;
+    }
+
+    figcaption {
+      font-style: italic;
+      color: #6C4E31;
+      margin-top: 0.5rem;
+    }
+
+  .footnotes {
+    margin-top: 3em;
+    border-top: 1px solid var(--text-color);
+    padding-top: 1em;
+    font-size: 1rem;
+  }
+
+  .footnotes p {
+    margin-bottom: 0.5em;
+  }
+</style>
+</head>
+
+<body>
+<button id="darkModeToggle">🌙</button>
+
+<h1>They got a good <em>character</em>istic..</h1>
+<p class="author">Venkat Trivikram</p>
+
+<p>Historically <em>classification</em> has been the most standard or natural way to study newer structures and spaces. To know more about a structure one would consider maps <em>to</em> it and <em>from</em> it. Owing to that, we see the following.</p>
+
+<p>Let, \(\mathbb{F}\) be a field. Since, \[
+1_{\mathbb{F}} \in \mathbb{F},\; 1_{\mathbb{F}}+1_{\mathbb{F}} \in \mathbb{F}\cdots
+\]
+we can say, \(n\cdot 1_{\mathbb{F}} \in \mathbb{F}\) \(\forall\, n \in \mathbb{N}.\)
+ Suppose, we define \(\forall\,n \in \mathbb{N}\),</p>
+
+<p>\[
+(-n)\cdot 1_{\mathbb{F}} := -(n \cdot 1_{\mathbb{F}}),
+\]</p>
+
+<p>then we can consider a map</p>
+
+<p>\[
+\begin{aligned}
+\varphi : \mathbb{Z} &\rightarrow \mathbb{F}\\
+n &\mapsto n \cdot 1_{\mathbb{F}}.
+\end{aligned}
+\]</p>
+
+<p>Observe, for any \(m,n \in \mathbb{Z}\)</p>
+
+<ul>
+  <li>\(\varphi(m + n) = (m+n)\cdot 1_{\mathbb{F}} = m\cdot 1_{\mathbb{F}} + n \cdot 1_{\mathbb{F}}=\varphi(m)+\varphi(n)\)</li>
+  <li>\(\varphi(mn)=mn \cdot 1_{\mathbb{F}}=(m \cdot 1_{\mathbb{F}})(n \cdot 1_{\mathbb{F}})=\varphi(m)\varphi(n)\)</li>
+  <li>\(\varphi(0)=0_{\mathbb{F}},\; \varphi(1)=1_{\mathbb{F}}\)</li>
+</ul>
+
+<p>thus, \(\varphi\) is a <strong>ring homomorphism</strong>.</p>
+
+<p>When we have a homomorphism, then the most immediate natural thing to do is to see its <em>kernel</em>. So,</p>
+
+<p>\[
+\ker(\varphi) = \{n \in \mathbb{Z} \mid n \cdot 1_{\mathbb{F}} = 0_{\mathbb{F}}\}.
+\]</p>
+
+<p>Now, for any non-zero integer \(n\) consider a decomposition \(n=ab\), then</p>
+
+<p>\[
+\begin{aligned}
+n\cdot 1_{\mathbb{F}} &= 0_{\mathbb{F}}\\
+(ab)\cdot 1_{\mathbb{F}} &= 0_{\mathbb{F}}\\
+(a \cdot 1_{\mathbb{F}})(b \cdot 1_{\mathbb{F}}) &= 0_{\mathbb{F}}
+\end{aligned}
+\]</p>
+
+<p>Field being an integral domain, tells us, either \((a \cdot 1_{\mathbb{F}}) = 0_{\mathbb{F}}\) or \((b \cdot 1_{\mathbb{F}})=0_{\mathbb{F}}.\)  
+Now, one can further decompose \(a\) and \(b\) (if possible) and can find a smallest integer \(n\) such that \(n \cdot 1_{\mathbb{F}} = 0_{\mathbb{F}}\), this leads to a following definition.</p>
+
+<p><b>Definition (Characteristic):</b>  
+In a field \(\mathbb{F}\), the smallest positive integer \(n\) such that \(n \cdot 1_{\mathbb{F}}=0_{\mathbb{F}}\) is called <strong>characteristic</strong> of a field, \(\cha(\mathbb{F})\).</p>
+
+<p>If we are defining some observation, it better be important. But why this <em>characteristic</em> of a field important? How exactly is it characterizing the field. Let us delve into that.</p>
+
+<blockquote>
+  since, a prime can't be decomposed further, the <em>characteristic</em> should be a <em>prime</em> if not <em>zero</em>.
+</blockquote>
+
+<p>Now, coming back to the \(\ker(\varphi)\). Since, \(\ker(\varphi)\) is an ideal of \(\mathbb{Z}\) and  \(\mathbb{Z}\) is a PID, we say \(\ker(\varphi) = (d)\) for some \(d \in \mathbb{Z}\). Since, \(\cha(\mathbb{F})\) is the smallest \(n\) such that \(n \cdot 1_{\mathbb{F}}=0_{\mathbb{F}}\), \(\cha(\mathbb{F}) \in \ker(\varphi)\) and it thus must be a generator of \(\ker(\varphi)\).
+Thus, \(\ker(\varphi) \equiv  \cha(\mathbb{F})\,\mathbb{Z}.\)</p>
+
+<p>When we have the kernel, then the most immediate natural thing to do is to <em>kill</em> it, ahem, <em>quotient</em> it. So, look at</p>
+
+<p>\[
+\mathbb{Z}/ \cha(\mathbb{F})\,\mathbb{Z}.
+\]</p>
+
+<p>We then, by First Isomorphism Theorem, have the following commutative diagram</p>
+
+<div class="diagram-container">
+  <iframe 
+    class="quiver-embed"
+    src="https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG1hdGhiYntafSJdLFsyLDAsIlxcbWF0aGJie0Z9Il0sWzAsMiwiXFxtYXRoYmJ7Wn0vXFxjaHtcXG1hdGhiYnsoRil9fVxcbWF0aGJie1p9Il0sWzAsMiwiXFxwaSIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDEsIlxcaW90YSIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMSwiXFx2YXJwaGkiXV0=&embed" 
+    style="border-radius: 0px; border: none;">
+  </iframe>
+</div>
+
+<p>where, \(\pi\) is the canonical surjection and \(\iota\) is injection. So, there is an isomorphic copy of \(\mathbb{Z}/ \text{ch}(\mathbb{F})\) in \(\mathbb{F}\). Since, \(\cha(\mathbb{F})=0 \text{ or } p\) for a prime \(p\). There are only two cases. We observe,</p>
+
+<ul>
+  <li>if \(\cha(\mathbb{F})=0\), then \(\mathbb{Z}/ \text{ch}(\mathbb{F})\mathbb{Z} = \mathbb{Z}\). Thus, there is an isomorphic copy of \(\mathbb{Z}\) in \(\mathbb{F}.\) But, \(\mathbb{F}\) is a field, thus field of fractions of \(\mathbb{Z}\) also sits in  \(\mathbb{F}\) isomorphically. We know,</li>
+</ul>
+
+<p>\[
+\text{Frac}(\mathbb{Z}) = \mathbb{Q}.
+\]</p>
+
+<p>Thus,</p>
+
+<p>\[
+\text{“an isomorphic copy of } \mathbb{Q} \text{ sits inside } \mathbb{F}\,\text{"}.
+\]</p>
+
+<ul>
+  <li>if \(\cha(\mathbb{F})=p\), for some prime \(p\), then there is an isomorphic copy of \(\mathbb{Z}/ p\mathbb{Z}\) in \(\mathbb{F}.\) But, \(\mathbb{Z}/ p\mathbb{Z}\) is already a field, we thus conclude,</li>
+</ul>
+
+<p>\[
+\text{“an isomorphic copy of } \mathbb{Z}/p\mathbb{Z} \text{ sits inside } \mathbb{F}\,\text{"}.
+\]</p>
+
+<p>Thus, there essentially are two kinds of fields! Great right!. So, once the characteristic of the field is known, we can immediately say something about the field. So, <em>characteristic</em> really does characterize the field :)</p>
+
+<!-- footnotes would go here if any -->
+
+    <script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent =
+        document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
